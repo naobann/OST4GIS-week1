@@ -29,8 +29,26 @@
       }).addTo(map);
 
       L.marker([50.5, 30.5]).addTo(map);
-      L.marker([39.954758, -75.193871]).addTo(map);
-      L.marker([39.955813, -75.157638]).addTo(map);
+      L.marker([39.954758, -75.193871]).addTo(map)
+      .bindPopup("<b>Sang Kee Noodle House</b>").openPopup();
+      L.marker([39.952137, -75.173341]).addTo(map)
+      .bindPopup("<b>Jane G's</b>").openPopup();
+
+      var popup = L.popup();
+
+      function onMapClick(e) {
+          popup
+              .setLatLng(e.latlng)
+              .setContent("You clicked the map at " + e.latlng.toString())
+              .openOn(map);
+      }
+
+      map.on('click', onMapClick);
+
+
+
+
+
     </script>
   </body>
 </html>
